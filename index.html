@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Blog</title>
+    <title>Ryuben Blog</title>
     <style>
         * {
             margin: 0;
@@ -12,317 +12,221 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
+            font-family: 'Courier New', monospace;
+            background: #1a1a2e;
+            color: #eee;
+            line-height: 1.8;
+            padding: 2rem;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .hero {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
+        header {
             margin-bottom: 3rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ff6bcb;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .hero p {
+        .logo {
+            background: #ff6bcb;
+            color: #1a1a2e;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
             font-size: 1.2rem;
-            color: #666;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .blog-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .blog-content {
-            padding: 1.5rem;
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 1rem;
             margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #888;
         }
 
-        .blog-category {
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #eee;
+            text-decoration: none;
+            margin-right: 2rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #ff6bcb;
+        }
+
+        .separator {
+            color: #ff6bcb;
+            margin: 2rem 0;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        article {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+        }
+
+        article h2 {
+            color: #ff6bcb;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta span {
+            margin-right: 1.5rem;
+        }
+
+        .tags {
+            margin: 1rem 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #ff6bcb;
+            color: #ff6bcb;
+            padding: 0.2rem 0.8rem;
+            margin-right: 0.5rem;
             font-size: 0.85rem;
         }
 
-        .blog-content h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .blog-content p {
-            color: #666;
-            margin-bottom: 1rem;
+        article p {
+            margin-top: 1rem;
+            color: #ccc;
         }
 
         .read-more {
-            color: #667eea;
-            font-weight: 600;
+            color: #ff6bcb;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
+            display: inline-block;
+            margin-top: 1rem;
+            border-bottom: 1px solid #ff6bcb;
         }
 
         .read-more:hover {
-            gap: 1rem;
+            background: #ff6bcb;
+            color: #1a1a2e;
+            padding: 0 0.3rem;
         }
 
         footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem 0;
-            text-align: center;
             margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        footer a {
+            color: #ff6bcb;
             text-decoration: none;
-            transition: transform 0.3s;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
+            body {
+                padding: 1rem;
             }
 
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Il Mio Blog</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#about">Chi Sono</a></li>
-                <li><a href="#contact">Contatti</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <div class="container">
-        <div class="hero">
-            <h1>Benvenuto nel Mio Blog</h1>
-            <p>Condivido le mie passioni, esperienze e pensieri</p>
-        </div>
+        <header>
+            <div class="logo">Ryuben</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="https://github.com/ryuben-star">Github</a>
+            </nav>
+        </header>
 
-        <div class="blog-grid" id="blog">
-            <article class="blog-card">
-                <div class="blog-image">📱</div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-category">Tecnologia</span>
-                        <span>15 Ottobre 2025</span>
-                    </div>
-                    <h2>Il Futuro della Tecnologia</h2>
-                    <p>Esploriamo insieme le ultime tendenze tecnologiche e come stanno cambiando il nostro modo di vivere e lavorare...</p>
-                    <a href="#" class="read-more">Leggi di più →</a>
+        <main>
+            <!-- ARTICOLO 1 - COPIA QUESTO BLOCCO PER AGGIUNGERE NUOVI ARTICOLI -->
+            <article>
+                <h2>Il mio primo articolo sul blog</h2>
+                <div class="meta">
+                    <span>2025-10-15</span>
+                    <span>:: Ryuben</span>
                 </div>
+                <div class="tags">
+                    <span class="tag">#tech</span>
+                    <span class="tag">#coding</span>
+                    <span class="tag">#web</span>
+                </div>
+                <div class="separator">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+                <p>
+                    Benvenuto nel mio blog! Qui condividerò i miei progetti, tutorial e riflessioni sul mondo della programmazione e della tecnologia. Sto iniziando questo viaggio di scrittura per documentare quello che imparo e condividere conoscenza con la community.
+                </p>
+                <p>
+                    Ogni articolo sarà una nuova avventura nel codice, dalle basi fino ai concetti più avanzati. Stay tuned!
+                </p>
+                <a href="#" class="read-more">More →</a>
             </article>
 
-            <article class="blog-card">
-                <div class="blog-image">🎨</div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-category">Design</span>
-                        <span>12 Ottobre 2025</span>
-                    </div>
-                    <h2>Principi di Design Moderno</h2>
-                    <p>Scopri i segreti dietro un design efficace e come creare esperienze visive memorabili per i tuoi progetti...</p>
-                    <a href="#" class="read-more">Leggi di più →</a>
+            <!-- ARTICOLO 2 -->
+            <article>
+                <h2>Come ho creato questo blog con GitHub Pages</h2>
+                <div class="meta">
+                    <span>2025-10-14</span>
+                    <span>:: Ryuben</span>
                 </div>
+                <div class="tags">
+                    <span class="tag">#github</span>
+                    <span class="tag">#tutorial</span>
+                    <span class="tag">#html</span>
+                </div>
+                <div class="separator">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+                <p>
+                    GitHub Pages è un servizio gratuito fantastico per hostare siti statici. In questo articolo ti spiego passo passo come ho configurato questo blog, dal repository fino al deploy automatico.
+                </p>
+                <p>
+                    Il design minimal che vedi è ispirato ai terminal Unix e ai blog old-school. Zero JavaScript, solo HTML e CSS puro.
+                </p>
+                <a href="#" class="read-more">More →</a>
             </article>
 
-            <article class="blog-card">
-                <div class="blog-image">✈️</div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-category">Viaggi</span>
-                        <span>8 Ottobre 2025</span>
-                    </div>
-                    <h2>Le Mie Avventure in Europa</h2>
-                    <p>Racconti delle mie esperienze di viaggio attraverso le città più belle d'Europa, con consigli e suggerimenti...</p>
-                    <a href="#" class="read-more">Leggi di più →</a>
+            <!-- ARTICOLO 3 -->
+            <article>
+                <h2>I miei tool preferiti per il coding</h2>
+                <div class="meta">
+                    <span>2025-10-12</span>
+                    <span>:: Ryuben</span>
                 </div>
+                <div class="tags">
+                    <span class="tag">#tools</span>
+                    <span class="tag">#productivity</span>
+                </div>
+                <div class="separator">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+                <p>
+                    Visual Studio Code, terminale iTerm2, e tanti altri tool che uso quotidianamente. Ecco la mia setup completa per essere produttivo e scrivere codice pulito.
+                </p>
+                <p>
+                    La scelta degli strumenti giusti può fare la differenza tra un workflow fluido e uno frustrante.
+                </p>
+                <a href="#" class="read-more">More →</a>
             </article>
 
-            <article class="blog-card">
-                <div class="blog-image">💡</div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-category">Lifestyle</span>
-                        <span>5 Ottobre 2025</span>
-                    </div>
-                    <h2>Produttività e Benessere</h2>
-                    <p>Come trovare il giusto equilibrio tra lavoro e vita personale, con strategie pratiche per migliorare la tua routine...</p>
-                    <a href="#" class="read-more">Leggi di più →</a>
-                </div>
-            </article>
+        </main>
 
-            <article class="blog-card">
-                <div class="blog-image">📚</div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-category">Libri</span>
-                        <span>1 Ottobre 2025</span>
-                    </div>
-                    <h2>Libri che Cambiano la Vita</h2>
-                    <p>Una selezione dei libri che hanno influenzato il mio modo di pensare e vedere il mondo, con recensioni personali...</p>
-                    <a href="#" class="read-more">Leggi di più →</a>
-                </div>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-image">🍳</div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-category">Cucina</span>
-                        <span>28 Settembre 2025</span>
-                    </div>
-                    <h2>Ricette Facili e Veloci</h2>
-                    <p>Le mie ricette preferite per quando hai poco tempo ma vuoi mangiare bene, con ingredienti semplici e genuini...</p>
-                    <a href="#" class="read-more">Leggi di più →</a>
-                </div>
-            </article>
-        </div>
+        <footer>
+            <p>© 2025 Powered by <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
     </div>
-
-    <footer>
-        <div class="social-links">
-            <a href="#" title="Facebook">f</a>
-            <a href="#" title="Twitter">𝕏</a>
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="LinkedIn">in</a>
-        </div>
-        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-    </footer>
 </body>
 </html>
+     
 
